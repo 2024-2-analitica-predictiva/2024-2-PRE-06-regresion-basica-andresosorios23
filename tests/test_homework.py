@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error
 def test_01():
     """Test if the model is able to predict the MPG of a car."""
 
-    dataset = pd.read_csv("auto_mpg.csv")
+    dataset = pd.read_csv("homework/auto_mpg.csv")
     dataset = dataset.dropna()
     dataset["Origin"] = dataset["Origin"].map(
         {1: "USA", 2: "Europe", 3: "Japan"},
@@ -20,7 +20,7 @@ def test_01():
     with open("mlp.pickle", "rb") as file:
         mlp = pickle.load(file)
 
-    with open("features_scaler.pickle", "rb") as file:
+    with open("homework/features_scaler.pickle", "rb") as file:
         features_scaler = pickle.load(file)
 
     standarized_dataset = features_scaler.transform(dataset)
